@@ -1,48 +1,36 @@
-# # School
-#
-# * gsId
-# * name
-# * type
-# * gradeRange
-# * enrollment
-# * city
-# * state
-# * districtId
-# * district
-# * districtNCESId
-# * address
-# * phone
-# * fax
-# * website
-# * ncesId
-# * lat
-# * lon
-# * overviewLink
-# * ratingsLink
-# * reviewsLink
-# * parentReviews
-
-
 module GreatSchools
   class School
+    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :city, :state, :district_id, :district, :districe_nces_id, :address,
+                  :phone, :fax, :website, :nces_id, :latitude, :longitude, :overview_link, :ratings_link, :reviews_link, :parent_reviews
 
-    # ### Browse Schools
+    # # School
     #
-    # Returns a list of schools in a city.
-    #
-    # ### Nearby Schools
-    #
-    # Returns a list of schools closest to the center of a city, ZIP Code or address.
-    #
-    # ### School Profile
-    #
-    # Returns a profile data for a specific school.
-    #
-    # ### School Search
-    #
-    # Returns a list of schools based on a search string.
-    #
+    # * gsId
+    # * name
+    # * type
+    # * gradeRange
+    # * enrollment
+    # * city
+    # * state
+    # * districtId
+    # * district
+    # * districtNCESId
+    # * address
+    # * phone
+    # * fax
+    # * website
+    # * ncesId
+    # * lat
+    # * lon
+    # * overviewLink
+    # * ratingsLink
+    # * reviewsLink
+    # * parentReviews
     class << self
+      # ### Browse Schools
+      #
+      # Returns a list of schools in a city.
+      #
       # state       - Two letter state abbreviation
       # city        - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores.
       # school_type - 'public', 'charter', 'private', combos: 'charter-private', 'public-private', 'public-private-charter'
@@ -56,6 +44,10 @@ module GreatSchools
         # SAMPLE schools/CA/Truckee?key=[yourAPIkey]&limit=2
       end
 
+      # ### Nearby Schools
+      #
+      # Returns a list of schools closest to the center of a city, ZIP Code or address.
+      #
       # state (required) - 2 letter state abbreviation
       # zip - 5 digit zip code
       # city - URL-encoded city name
@@ -75,10 +67,18 @@ module GreatSchools
         # SAMPLE schools/nearby?key=[yourAPIKey]&state=CA&zip=94105&limit=2
       end
 
+      # ### School Profile
+      #
+      # Returns a profile data for a specific school.
+      #
       def profile(state, id)
         # SAMPLE schools/CA/1?key=[yourkey]
       end
 
+      # ### School Search
+      #
+      # Returns a list of schools based on a search string.
+      #
       # state (required) - State to search in
       # q (required) - Search query string. The query string must be properly URL-encoded.
       # levelCode - Level of school you wish to appear in the list
