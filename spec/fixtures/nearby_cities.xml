@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cities>
+  <city>
+    <name>Lamont</name>
+    <rating>3</rating>
+    <totalSchools>5</totalSchools>
+    <elementarySchools>3</elementarySchools>
+    <middleSchools>2</middleSchools>
+    <highSchools>1</highSchools>
+    <publicSchools>5</publicSchools>
+    <charterSchools>0</charterSchools>
+    <privateSchools>0</privateSchools>
+  </city>
+  <city>
+    <name>Arvin</name>
+    <rating>3</rating>
+    <totalSchools>6</totalSchools>
+    <elementarySchools>4</elementarySchools>
+    <middleSchools>2</middleSchools>
+    <highSchools>1</highSchools>
+    <publicSchools>6</publicSchools>
+    <charterSchools>0</charterSchools>
+    <privateSchools>0</privateSchools>
+  </city>
+</cities>

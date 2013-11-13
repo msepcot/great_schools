@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<school>
+  <gsId>1</gsId>
+  <name>Alameda High School</name>
+  <type>public</type>
+  <gradeRange>9-12</gradeRange>
+  <enrollment>1938</enrollment>
+  <city>Alameda</city>
+  <state>CA</state>
+  <districtId>1</districtId>
+  <district>Alameda City Unified School District</district>
+  <districtNCESId>0601770</districtNCESId>
+  <address>2201 Encinal Ave., Alameda, CA  94501</address>
+  <phone>(510) 337-7022</phone>
+  <fax>(510) 521-4740</fax>
+  <website>http://ahs.alameda.k12.ca.us/</website>
+  <ncesId>060177000041</ncesId>
+  <lat>37.764267</lat>
+  <lon>-122.24818</lon>
+  <overviewLink>http://www.greatschools.org/modperl/browse_school/ca/1?s_cid=gsapi</overviewLink>
+  <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=1&s_cid=gsapi</ratingsLink>
+  <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi</reviewsLink>
+  <parentReviews>
+    <review>
+      <schoolName>Alameda High School</schoolName>
+      <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220</reviewLink>
+      <rating>3</rating>
+      <submitter>former student</submitter>
+      <postedDate>2006/06/06</postedDate>
+      <comments>The staff gets on the level of the students and everything is kaotic.</comments>
+    </review>
+    <review>
+      <schoolName>Alameda High School</schoolName>
+      <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps354422</reviewLink>
+      <rating>3</rating>
+      <submitter>parent</submitter>
+      <postedDate>2006/03/12</postedDate>
+      <comments>I have hasd 2 children at Alameda High and I find the school to be 'okay. As a large public high school, with a huge variation of academic abilities, it is extremely important for parents to stay in touch with course choices and expectations of teachers to ensure their child's basic education. Their music and drama programs are excellent - don't know about sports. Easy to lose your way in such a large environment - stay in touch with counselors and teachers.</comments>
+    </review>
+    <review>
+      <schoolName>Alameda High School</schoolName>
+      <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps214510</reviewLink>
+      <rating>4</rating>
+      <submitter>parent</submitter>
+      <postedDate>2005/05/06</postedDate>
+      <comments>We just went to Open House at Alameda High, and found the teachers very dedicated.  They know their students and were ready to give individual feedback to parents.  There is a range of academic levels offered including some very challenging AP classes. Some classes are rather large, but the EXP and AP classes may be smaller. There is a range of students, from those who are not interested in studying, to those who are highly motivated and hard working, with GPA's over 4.0. There is a lot of student involvement in extracurricular activities, such as a poetry anthology they were selling to raise money for the English Dept., a book sale to benefit the media center, a blood drive sponsored by one of the clubs.  They have after school sports, an active music dept (the jazz band just performed at Yoshi's), extraodinary drama dept. that puts on several plays each year.</comments>
+    </review>
+    <review>
+      <schoolName>Alameda High School</schoolName>
+      <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps154770</reviewLink>
+      <rating>4</rating>
+      <submitter>parent</submitter>
+      <postedDate>2005/01/04</postedDate>
+      <comments>Excellent teachers for AP and HP English and History programs. Good music/choir program. Excellent drama program. Sports-- won league in many sports in 2003-2004.</comments>
+    </review>
+    <review>
+      <schoolName>Alameda High School</schoolName>
+      <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps105868</reviewLink>
+      <rating>3</rating>
+      <submitter>former student</submitter>
+      <postedDate>2004/07/29</postedDate>
+      <comments>Good school.  Lots of AP classes.  But mixed economics makes learning tougher for the non-CP students.</comments>
+    </review>
+  </parentReviews>
+</school>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<districts>
+  <district>
+    <name>San Francisco Unified School District</name>
+    <ncesCode>0634410</ncesCode>
+    <districtRating>6</districtRating>
+    <address>555 Franklin St., San Francisco, CA 94102</address>
+    <phone>(415) 241-6000</phone>
+    <fax>(415) 241-6012</fax>
+    <website>http://www.sfusd.k12.ca.us</website>
+    <gradeRange>K-12 & ungraded</gradeRange>
+    <totalSchools>121</totalSchools>
+    <elementarySchools>84</elementarySchools>
+    <middleSchools>36</middleSchools>
+    <highSchools>34</highSchools>
+    <publicSchools>113</publicSchools>
+    <charterSchools>8</charterSchools>
+  </district>
+  <district>
+    <name>San Francisco County Office of Education</name>
+    <ncesCode>0691111</ncesCode>
+    <districtRating>1</districtRating>
+    <address>555 Franklin St., San Francisco, CA 94102</address>
+    <phone>(415) 241-6000</phone>
+    <fax>(415) 241-6012</fax>
+    <website>http://www.sfusd.k12.ca.us</website>
+    <gradeRange>K-12</gradeRange>
+    <totalSchools>4</totalSchools>
+    <elementarySchools>2</elementarySchools>
+    <middleSchools>3</middleSchools>
+    <highSchools>4</highSchools>
+    <publicSchools>4</publicSchools>
+    <charterSchools>0</charterSchools>
+  </district>
+</districts>

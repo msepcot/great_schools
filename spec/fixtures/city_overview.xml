@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<city>
+  <name>Anchorage</name>
+  <rating>7</rating>
+  <totalSchools>103</totalSchools>
+  <elementarySchools>76</elementarySchools>
+  <middleSchools>41</middleSchools>
+  <highSchools>33</highSchools>
+  <publicSchools>74</publicSchools>
+  <charterSchools>6</charterSchools>
+  <privateSchools>23</privateSchools>
+</city>

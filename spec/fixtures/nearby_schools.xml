@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schools>
+  <school>
+    <gsId>11536</gsId>
+    <name>Youth Chance High School</name>
+    <type>private</type>
+    <gradeRange>10-12</gradeRange>
+    <enrollment>25</enrollment>
+    <city>San Francisco</city>
+    <state>CA</state>
+    <address>169 Steuart Street, San Francisco, CA  94105</address>
+    <phone>(415) 615-1337</phone>
+    <ncesId>A9900759</ncesId>
+    <lat>37.7924</lat>
+    <lon>-122.3921</lon>
+    <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/11536?s_cid=gsapi</overviewLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=11536&s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=11536&s_cid=gsapi</reviewsLink>
+  </school>
+  <school>
+    <gsId>8097</gsId>
+    <name>Notre Dame des Victoires School</name>
+    <type>private</type>
+    <gradeRange>K-8</gradeRange>
+    <enrollment>275</enrollment>
+    <city>San Francisco</city>
+    <state>CA</state>
+    <address>659 Pine St, San Francisco, CA  94108</address>
+    <phone>(415) 421-0069</phone>
+    <ncesId>00072439</ncesId>
+    <lat>37.791412</lat>
+    <lon>-122.406784</lon>
+    <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/8097?s_cid=gsapi</overviewLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=8097&s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=8097&s_cid=gsapi</reviewsLink>
+  </school>
+</schools>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testResults>
+  <schoolName>Flagstaff High School</schoolName>
+  <rank>
+    <name>AZ GS Rating</name>
+    <scale>1-10</scale>
+    <year>2008</year>
+    <description>GreatSchools Ratings for Arizona are based on the 2007-2008 Arizona's Instrument to Measure Standards (AIMS) reading, writing and math results. GreatSchools compared the test results for each grade and subject across all Arizona schools and divided them into 1 through 10 ratings (10 is the best). Please note, private schools are not required to release test results, so ratings are available only for public schools. GreatSchools Ratings cannot be compared across states, because of differences in the states' standardized testing programs. Keep in mind that when comparing schools using GreatSchools Ratings it's important to factor in other information, including the quality of each school's teachers, the school culture, special programs, etc.</description>
+    <score>9.0</score>
+  </rank>
+  <test>
+    <name>Arizona's Instrument to Measure Standards</name>
+    <id>AZ00137</id>
+    <description>In 2007-2008 Arizona's Instrument to Measure Standards (AIMS) was used to test students in reading, writing and mathematics in grades 3 through 8 and 10, and in science in grades 4, 8 and high school.  AIMS is a standards-based test, which means that it measures how well students have mastered Arizona's learning standards. Students must pass the grade 10 AIMS in order to graduate. The goal is for all students to meet or exceed state standards on the test.</description>
+    <abbreviation>AIMS</abbreviation>
+    <scale>% meeting or exceeding standards</scale>
+    <levelCode>e,m,h</levelCode>
+    <testResult>
+      <gradeName>10</gradeName>
+      <score>81.0</score>
+      <subjectName>Writing</subjectName>
+      <testId>AZ00137</testId>
+      <year>2008</year>
+    </testResult>
+    <testResult>
+      <gradeName>10</gradeName>
+      <score>17.0</score>
+      <subjectName>Reading</subjectName>
+      <testId>AZ00137</testId>
+      <year>2008</year>
+    </testResult>
+  </test>
+</testResults>

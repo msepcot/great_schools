@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schools>
+  <school>
+    <gsId>8485</gsId>
+    <name>Alameda Christian School</name>
+    <type>private</type>
+    <gradeRange>K-8</gradeRange>
+    <enrollment>52</enrollment>
+    <parentRating>5</parentRating>
+    <city>Alameda</city>
+    <state>CA</state>
+    <address>2226 Pacific Ave, Alameda, CA 94501</address>
+    <phone>(510) 523-1000</phone>
+    <ncesId>00079445</ncesId>
+    <lat>37.768623</lat>
+    <lon>-122.243965</lon>
+    <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/8485?s_cid=gsapi</overviewLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=8485&s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=8485&s_cid=gsapi</reviewsLink>
+  </school>
+  <school>
+    <gsId>24205</gsId>
+    <name>Chinese Christian Schools-Alameda</name>
+    <type>private</type>
+    <gradeRange>K-8</gradeRange>
+    <enrollment>225</enrollment>
+    <city>Alameda</city>
+    <state>CA</state>
+    <address>1801 N Loop Rd, Alameda, CA 94502</address>
+    <phone>(510) 522-0200</phone>
+    <ncesId>A0500218</ncesId>
+    <lat>37.72749</lat>
+    <lon>-122.2401</lon>
+    <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/24205?s_cid=gsapi</overviewLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=24205&s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=24205&s_cid=gsapi</reviewsLink>
+  </school>
+</schools>

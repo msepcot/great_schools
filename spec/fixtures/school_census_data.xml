@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<census-data>
+  <schoolName>Simle Middle School</schoolName>
+  <address>1215 N 19th St,  Bismarck, ND  58501</address>
+  <latitude>46.8179</latitude>
+  <longitude>-100.7631</longitude>
+  <phone>(701) 221-3570</phone>
+  <type>public</type>
+  <district>Bismarck 1</district>
+  <enrollment>851</enrollment>
+  <freeAndReducedPriceLunch>23.3843</freeAndReducedPriceLunch>
+  <studentTeacherRatio>14.1</studentTeacherRatio>
+  <ethnicities>
+    <ethnicity>
+      <name>White, non-Hispanic</name>
+      <value>91.0693</value>
+      <year>2007</year>
+    </ethnicity>
+    <ethnicity>
+      <name>Black, non-Hispanic</name>
+      <value>0.587544</value>
+      <year>2007</year>
+    </ethnicity>
+    <ethnicity>
+      <name>Hispanic</name>
+      <value>0.822562</value>
+      <year>2007</year>
+    </ethnicity>
+    <ethnicity>
+      <name>Asian/Pacific Islander</name>
+      <value>0.705053</value>
+      <year>2007</year>
+    </ethnicity>
+    <ethnicity>
+      <name>Native American or Native Alaskan</name>
+      <value>6.81551</value>
+      <year>2007</year>
+    </ethnicity>
+  </ethnicities>
+</census-data>
