@@ -1,35 +1,21 @@
 module GreatSchools
-  class District
+  class District < Model
     attr_accessor :name, :address, :phone, :fax, :website
     attr_accessor :nces_code, :district_rating, :grade_range, :total_schools
-    attr_accessor :elmentary_schools, :middle_schools, :high_schools
+    attr_accessor :elementary_schools, :middle_schools, :high_schools
     attr_accessor :public_schools, :charter_schools
 
-    # # District
-    #
-    # * ncesCode
-    # * name
-    # * districtRating
-    # * address
-    # * phone
-    # * fax
-    # * website
-    # * gradeRange
-    # * totalSchools
-    # * elementarySchools
-    # * middleSchools
-    # * highSchools
-    # * publicSchools
-    # * charterSchools
-    class << self
-      # ### Browse Districts
-      #
+    class << self # Class methods
       # Returns a list of school districts in a city.
-      # * state - Two letter state abbreviation
-      # * city  - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores. Any other special characters should be URL-encoded
+      #
+      # +state+ is the two letter state abbreviation.
       def browse(state, city)
-        # districts/CA/San-Francisco?key=[yourAPIKey]
-        # SAMPLE districts/CA/San-Francisco?key=[yourAPIKey]
+        results = GreatSchools::API.get("districts/#{state.upcase}/#{parameterize(city)}")
+
+        districts = results.fetch('districts', {}).fetch('district')
+        districts = [districts] unless districts.is_a?(Array)
+
+        districts.map {|district| new(district) }
       end
     end
   end
