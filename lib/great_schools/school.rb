@@ -1,7 +1,8 @@
 module GreatSchools
   class School
-    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :city, :state, :district_id, :district, :districe_nces_id, :address,
-                  :phone, :fax, :website, :nces_id, :latitude, :longitude, :overview_link, :ratings_link, :reviews_link, :parent_reviews
+    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :district_id, :district, :districe_nces_id, :nces_id
+    attr_accessor :city, :state, :address, :phone, :fax, :website, :latitude, :longitude
+    attr_accessor :overview_link, :ratings_link, :reviews_link, :parent_reviews
 
     # # School
     #
@@ -94,14 +95,29 @@ module GreatSchools
     # ### School Reviews
     #
     # Returns a list of the most recent reviews for a school or for any schools in a city.
-    #
+    # * state - Two letter state abbreviation
+    # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
+    # * limit - Maximum number of reviews to return. This defaults to 5.
+    def reviews(limit = 5)
+      # reviews/school/CA/1?key=[yourAPIkey]
+    end
+
     # ### School Test Scores
     #
     # Returns test and rank data for a specific school.
-    #
+    # * state - Two letter state abbreviation
+    # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
+    def scores
+      # SAMPLE school/tests/CA/1?key=[yourkey]
+    end
+
     # ### School Census Data
     #
     # Returns census and profile data for a school.
-
+    # * state - Two letter state abbreviation
+    # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
+    def census
+      # SAMPLE school/census/ND/20?key=[yourkey]
+    end
   end
 end
