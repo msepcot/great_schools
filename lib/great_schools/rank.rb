@@ -6,7 +6,7 @@
 # * description
 # * score
 module GreatSchools
-  class Rank
+  class Rank < Model
     attr_accessor :name, :scale, :year, :description, :score
   end
 end

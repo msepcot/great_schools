@@ -9,10 +9,11 @@ module GreatSchools
       # Returns a list of school districts in a city.
       #
       # +state+ is the two letter state abbreviation.
+      # +city+ is the name of the city.
       def browse(state, city)
-        results = GreatSchools::API.get("districts/#{state.upcase}/#{parameterize(city)}")
+        response = GreatSchools::API.get("districts/#{state.upcase}/#{parameterize(city)}")
 
-        districts = results.fetch('districts', {}).fetch('district')
+        districts = response.fetch('districts', {}).fetch('district')
         districts = [districts] unless districts.is_a?(Array)
 
         districts.map {|district| new(district) }

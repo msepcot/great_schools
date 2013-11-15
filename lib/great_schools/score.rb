@@ -4,7 +4,7 @@
 # * rank
 # * test
 module GreatSchools
-  class Score
+  class Score < Model
     attr_accessor :school_name, :rank, :test
   end
 end

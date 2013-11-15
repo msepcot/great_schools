@@ -16,9 +16,9 @@ module GreatSchools
         # TODO validate radius in range 1-100
         # TODO validate sort one of: distance, name, or rating
 
-        results = GreatSchools::API.get("cities/nearby/#{state.upcase}/#{parameterize(city)}", radius: radius, sort: sort)
+        response = GreatSchools::API.get("cities/nearby/#{state.upcase}/#{parameterize(city)}", radius: radius, sort: sort)
 
-        cities = results.fetch('cities', {}).fetch('city')
+        cities = response.fetch('cities', {}).fetch('city')
         cities = [cities] unless cities.is_a?(Array)
 
         cities.map {|city| new(city.merge(state: state)) }
@@ -30,9 +30,9 @@ module GreatSchools
       # * state - Two letter state abbreviation
       # * city  - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores. Any other special characters should be URL-encoded
       def overview(state, city)
-        results = GreatSchools::API.get("cities/#{state.upcase}/#{parameterize(city)}")
+        response = GreatSchools::API.get("cities/#{state.upcase}/#{parameterize(city)}")
 
-        new(results.fetch('city', {}).merge(state: state))
+        new(response.fetch('city', {}).merge(state: state))
       end
     end
 

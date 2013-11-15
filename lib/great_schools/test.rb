@@ -8,7 +8,7 @@
 # * levelCode
 # * testResult (multiple)
 module GreatSchools
-  class Test
+  class Test < Model
     attr_accessor :name, :id, :description, :abbreviation, :scale, :level, :results
   end
 end

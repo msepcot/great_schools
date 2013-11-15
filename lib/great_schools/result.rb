@@ -6,7 +6,7 @@
 # * testId
 # * year
 module GreatSchools
-  class Result
+  class Result < Model
     attr_accessor :grade_name, :score, :subject_name, :test_id, :year
   end
 end

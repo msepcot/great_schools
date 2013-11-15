@@ -4,7 +4,7 @@
 # * value
 # * year
 module GreatSchools
-  class Ethnicity
+  class Ethnicity < Model
     attr_accessor :name, :value, :year
   end
 end

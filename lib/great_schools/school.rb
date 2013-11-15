@@ -99,7 +99,7 @@ module GreatSchools
     # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
     # * limit - Maximum number of reviews to return. This defaults to 5.
     def reviews(limit = 5)
-      # reviews/school/CA/1?key=[yourAPIkey]
+      GreatSchools::Review.for_school(state, gs_id, limit)
     end
 
     # ### School Test Scores
