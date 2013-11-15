@@ -1,6 +1,6 @@
 module GreatSchools
-  class School
-    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :district_id, :district, :districe_nces_id, :nces_id
+  class School < Model
+    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :district_id, :district, :district_nces_id, :nces_id
     attr_accessor :city, :state, :address, :phone, :fax, :website, :latitude, :longitude
     attr_accessor :overview_link, :ratings_link, :reviews_link, :parent_reviews
 
@@ -73,7 +73,9 @@ module GreatSchools
       # Returns a profile data for a specific school.
       #
       def profile(state, id)
-        # SAMPLE schools/CA/1?key=[yourkey]
+        response = GreatSchools::API.get("schools/#{state.upcase}/#{id}")
+
+        new(response.fetch('school', {}))
       end
 
       # ### School Search

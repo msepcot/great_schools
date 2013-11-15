@@ -46,7 +46,9 @@ module GreatSchools
         reviews = response.fetch('reviews', {}).fetch('review')
         reviews = [reviews] unless reviews.is_a?(Array)
 
-        reviews.map {|review| Review.new(review) }
+        reviews.map {|review| new(review) }
+      rescue
+        response
       end
     end
   end
