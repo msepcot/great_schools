@@ -45,7 +45,7 @@ module GreatSchools
       def get(path, parameters = {})
         parameters.merge!(key: key)
 
-        response = HTTParty.get("#{DOMAIN}/#{path}", query: parameters)
+        response = HTTParty.get("#{DOMAIN}/#{path}", query: parameters, format: :xml)
 
         if response.code.eql?(200)
           parse(response.values.first) # strip the container element before parsing

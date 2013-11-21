@@ -26,7 +26,7 @@ module GreatSchools #:nodoc:
 
         response = GreatSchools::API.get(url, sort: sort, limit: limit)
 
-        response.map {|review| new(review) }
+        Array.wrap(response).map {|review| new(review) }
       end
 
       # = Nearby Schools
@@ -56,7 +56,7 @@ module GreatSchools #:nodoc:
 
         response = GreatSchools::API.get('schools/nearby', options)
 
-        response.map {|review| new(review) }
+        Array.wrap(response).map {|review| new(review) }
       end
 
       # = School Profile
@@ -85,7 +85,7 @@ module GreatSchools #:nodoc:
 
         response = GreatSchools::API.get("search/schools", state: state, q: query, levelCode: level, sort: sort, limit: limit)
 
-        response.map {|review| new(review) }
+        Array.wrap(response).map {|review| new(review) }
       end
     end
 

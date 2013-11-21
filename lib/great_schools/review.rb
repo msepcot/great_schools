@@ -14,7 +14,7 @@ module GreatSchools #:nodoc:
       def for_city(state, city, cutoff_age = nil, limit = 5)
         response = GreatSchools::API.get("reviews/city/#{state.upcase}/#{parameterize(city)}", cutoffAge: cutoff_age, limit: limit)
 
-        response.map {|review| new(review) }
+        Array.wrap(response).map {|review| new(review) }
       end
 
       # = School Reviews
@@ -26,7 +26,7 @@ module GreatSchools #:nodoc:
       def for_school(state, id, limit = 5)
         response = GreatSchools::API.get("reviews/school/#{state.upcase}/#{id}", limit: limit)
 
-        response.map {|review| new(review) }
+        Array.wrap(response).map {|review| new(review) }
       end
     end
   end

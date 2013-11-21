@@ -18,7 +18,7 @@ module GreatSchools #:nodoc:
 
         response = GreatSchools::API.get("cities/nearby/#{state.upcase}/#{parameterize(city)}", radius: radius, sort: sort)
 
-        response.map {|city| new(city.merge(state: state)) }
+        Array.wrap(response).map {|city| new(city.merge(state: state)) }
       end
 
       # = City Overview
@@ -32,6 +32,9 @@ module GreatSchools #:nodoc:
         new(response.merge(state: state))
       end
     end
+
+    alias_method :city, :name
+    alias_method :city=, :name=
 
     def districts
       @districts ||= GreatSchools::District.browse(state, name)
