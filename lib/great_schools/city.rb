@@ -1,11 +1,11 @@
-module GreatSchools
+module GreatSchools #:nodoc:
   class City < Model
     attr_accessor :name, :state, :rating, :total_schools
     attr_accessor :elementary_schools, :middle_schools, :high_schools
     attr_accessor :public_schools, :charter_schools, :private_schools
 
     class << self # Class methods
-      # ### Nearby Cities
+      # = Nearby Cities
       #
       # Returns a list of cities near another city.
       # * state - Two letter state abbreviation
@@ -18,13 +18,10 @@ module GreatSchools
 
         response = GreatSchools::API.get("cities/nearby/#{state.upcase}/#{parameterize(city)}", radius: radius, sort: sort)
 
-        cities = response.fetch('cities', {}).fetch('city')
-        cities = [cities] unless cities.is_a?(Array)
-
-        cities.map {|city| new(city.merge(state: state)) }
+        response.map {|city| new(city.merge(state: state)) }
       end
 
-      # ### City Overview
+      # = City Overview
       #
       # Returns information about a city.
       # * state - Two letter state abbreviation
@@ -32,11 +29,15 @@ module GreatSchools
       def overview(state, city)
         response = GreatSchools::API.get("cities/#{state.upcase}/#{parameterize(city)}")
 
-        new(response.fetch('city', {}).merge(state: state))
+        new(response.merge(state: state))
       end
     end
 
-    # ### School Reviews
+    def districts
+      @districts ||= GreatSchools::District.browse(state, name)
+    end
+
+    # = School Reviews
     #
     # Returns a list of the most recent reviews for a school or for any schools in a city.
     # * state       - Two letter state abbreviation

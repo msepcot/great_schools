@@ -1,4 +1,4 @@
-module GreatSchools
+module GreatSchools #:nodoc:
   class District < Model
     attr_accessor :name, :address, :phone, :fax, :website
     attr_accessor :nces_code, :district_rating, :grade_range, :total_schools
@@ -13,10 +13,7 @@ module GreatSchools
       def browse(state, city)
         response = GreatSchools::API.get("districts/#{state.upcase}/#{parameterize(city)}")
 
-        districts = response.fetch('districts', {}).fetch('district')
-        districts = [districts] unless districts.is_a?(Array)
-
-        districts.map {|district| new(district) }
+        Array.wrap(response).map {|district| new(district) }
       end
     end
   end

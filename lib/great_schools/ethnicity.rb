@@ -1,9 +1,4 @@
-# # Ethnicity
-#
-# * name
-# * value
-# * year
-module GreatSchools
+module GreatSchools #:nodoc:
   class Ethnicity < Model
     attr_accessor :name, :value, :year
   end
