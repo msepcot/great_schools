@@ -14,8 +14,8 @@
     <lat>37.7924</lat>
     <lon>-122.3921</lon>
     <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/11536?s_cid=gsapi</overviewLink>
-    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=11536&s_cid=gsapi</ratingsLink>
-    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=11536&s_cid=gsapi</reviewsLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&amp;id=11536&amp;s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=11536&amp;s_cid=gsapi</reviewsLink>
   </school>
   <school>
     <gsId>8097</gsId>
@@ -31,7 +31,7 @@
     <lat>37.791412</lat>
     <lon>-122.406784</lon>
     <overviewLink>http://www.greatschools.org/cgi-bin/ca/private/8097?s_cid=gsapi</overviewLink>
-    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=8097&s_cid=gsapi</ratingsLink>
-    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=8097&s_cid=gsapi</reviewsLink>
+    <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&amp;id=8097&amp;s_cid=gsapi</ratingsLink>
+    <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=8097&amp;s_cid=gsapi</reviewsLink>
   </school>
 </schools>

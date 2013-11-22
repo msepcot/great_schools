@@ -1,8 +1,10 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'great_schools'
+require 'active_support/core_ext/string/filters'
 require 'fakeweb'
+
+require 'great_schools'
 
 RSpec.configure do |config|
   config.before(:suite) do

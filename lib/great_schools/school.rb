@@ -1,32 +1,39 @@
 module GreatSchools #:nodoc:
   class School < Model
-    attr_accessor :gs_id, :name, :type, :grade_range, :enrollment, :district_id, :district, :district_nces_id, :nces_id
+    attr_accessor :id, :name, :type, :grade_range, :enrollment, :district_id, :district, :district_nces_id, :nces_id
     attr_accessor :city, :state, :address, :phone, :fax, :website, :latitude, :longitude
-    attr_accessor :overview_link, :ratings_link, :reviews_link, :parent_reviews
+    attr_accessor :overview_link, :ratings_link, :reviews_link, :parent_reviews, :parent_rating
+
+    alias_method :gs_id=, :id=
+    alias_method :lat=, :latitude=
+    alias_method :lon=, :longitude=
 
     class << self # Class methods
       # = Browse Schools
       #
       # Returns a list of schools in a city.
       #
-      # state       - Two letter state abbreviation
-      # city        - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores.
-      # school_type - 'public', 'charter', 'private', combos: 'charter-private', 'public-private', 'public-private-charter'
-      # level       - 'elementary-schools', 'middle-schools', 'high-schools'
-      # sort        - 'name', 'gs_rating', 'parent_rating'
-      # limit       - Maximum number of schools to return. This defaults to 200. To get all results, use -1.
-      def browse(state, city, school_types = [], level = nil, sort = :name, limit = 200)
-        # schools/CA/Alameda?key=[yourAPIkey]
-        # schools/CA/Alameda?key=[yourAPIkey]&limit=-1
-        # schools/CA/San-Francisco/private/middle-schools?key=[yourAPIkey]&sort=parent_rating&limit=5
-        # SAMPLE schools/CA/Truckee?key=[yourAPIkey]&limit=2
+      # state (required)  - Two letter state abbreviation
+      # city (required)   - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores.
+      # school_type       - 'public', 'charter', 'private', combos: 'charter-private', 'public-private', 'public-private-charter'
+      # level             - 'elementary-schools', 'middle-schools', 'high-schools'
+      # sort              - 'name', 'gs_rating', 'parent_rating'
+      # limit             - Maximum number of schools to return. This defaults to 200. To get all results, use -1.
+      def browse(state, city, options = {}) # school_types = [], level = nil, sort = :name, limit = 200)
+        # TODO validate options
+        school_types  = Array.wrap(options.delete(:school_type)).join('-')
+        level         = options.delete(:level)
 
-        # TODO validate parameters
-        url = "schools/#{state.upcase}/#{parameterize(city)}/#{[*school_types].join('-')}/#{level}".gsub('//', '/')
+        sort  = options.delete(:sort) || :name
+        limit = options.delete(:limit) || 200
+
+        url = "schools/#{state.upcase}/#{parameterize(city)}"
+        url << "/#{school_types}" if school_types.present?
+        url << "/#{level}" if level.present?
 
         response = GreatSchools::API.get(url, sort: sort, limit: limit)
 
-        Array.wrap(response).map {|review| new(review) }
+        Array.wrap(response).map {|school| new(school) }
       end
 
       # = Nearby Schools
@@ -51,12 +58,21 @@ module GreatSchools #:nodoc:
         # schools/nearby?key=[yourAPIKey]&state=CA&lat=37.758862&lon=-122.411406
         # SAMPLE schools/nearby?key=[yourAPIKey]&state=CA&zip=94105&limit=2
 
+        # TODO validate options
+        # TODO create a mapping function
+        options[:state]           = state
+        options[:lat]             = options.delete(:latitude)
+        options[:lon]             = options.delete(:longitude)
+        options[:schoolType]      = options.delete(:school_type).try(:join, '-')
+        options[:levelCode]       = options.delete(:level)
+        options[:minimumSchools]  = options.delete(:minimum_schools)
+
         keys = [:state, :zip, :city, :address, :lat, :lon, :schoolType, :levelCode, :minimumSchools, :radius, :limit]
-        options.keep_if {|key,_| keys.include?(key) }
+        options.keep_if {|key, value| keys.include?(key) && value.present? }
 
         response = GreatSchools::API.get('schools/nearby', options)
 
-        Array.wrap(response).map {|review| new(review) }
+        Array.wrap(response).map {|school| new(school) }
       end
 
       # = School Profile
@@ -78,15 +94,42 @@ module GreatSchools #:nodoc:
       # levelCode - Level of school you wish to appear in the list
       # sort - This call by default sorts the results by relevance. If you'd prefer the results in alphabetical order, then use this parameter with a value of "alpha".
       # limit - Maximum number of schools to return. This defaults to 200 and must be at least 1.
-      def search(state, query, level = nil, sort = nil, limit = 200)
-        # search/schools?key=[yourAPIKey]&state=CA&q=Alameda
-        # search/schools?key=[yourAPIKey]&state=CA&q=Alameda&sort=alpha&levelCode=elementary-schools&limit=10
-        # SAMPLE search/schools?key=[yourAPIKey]&state=CA&q=Alameda+Christian&limit=2
+      def search(state, query, options = {})
+        # TODO validate options
 
-        response = GreatSchools::API.get("search/schools", state: state, q: query, levelCode: level, sort: sort, limit: limit)
+        options[:levelCode] = options.delete(:level)
+        options[:limit]   ||= 200
+        options[:q]         = query
+        options[:state]     = state
 
-        Array.wrap(response).map {|review| new(review) }
+        keys = [:state, :q, :levelCode, :sort, :limit]
+        options.keep_if {|key, value| keys.include?(key) && value.present? }
+
+        response = GreatSchools::API.get('search/schools', options)
+
+        Array.wrap(response).map {|school| new(school) }
       end
+    end
+
+    # = School Census Data
+    #
+    # Returns census and profile data for a school.
+    # * state - Two letter state abbreviation
+    # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
+    def census
+      GreatSchools::Census.for_school(state, id)
+    end
+
+    def parent_reviews=(params)
+      @parent_reviews = []
+
+      params = params['review'] if params.is_a?(Hash) && params.key?('review')
+
+      Array.wrap(params).each do |hash|
+        @parent_reviews << GreatSchools::Review.new(hash)
+      end
+
+      @parent_reviews
     end
 
     # = School Reviews
@@ -96,7 +139,7 @@ module GreatSchools #:nodoc:
     # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
     # * limit - Maximum number of reviews to return. This defaults to 5.
     def reviews(limit = 5)
-      GreatSchools::Review.for_school(state, gs_id, limit)
+      GreatSchools::Review.for_school(state, id, limit)
     end
 
     # = School Test Scores
@@ -105,16 +148,7 @@ module GreatSchools #:nodoc:
     # * state - Two letter state abbreviation
     # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
     def scores
-      GreatSchools::Score.for_school(state, gs_id)
-    end
-
-    # = School Census Data
-    #
-    # Returns census and profile data for a school.
-    # * state - Two letter state abbreviation
-    # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
-    def census
-      GreatSchools::Census.for_school(state, gs_id)
+      GreatSchools::Score.for_school(state, id)
     end
   end
 end

@@ -11,7 +11,7 @@
   <test>
     <name>Arizona's Instrument to Measure Standards</name>
     <id>AZ00137</id>
-    <description>In 2007-2008 Arizona's Instrument to Measure Standards (AIMS) was used to test students in reading, writing and mathematics in grades 3 through 8 and 10, and in science in grades 4, 8 and high school.  AIMS is a standards-based test, which means that it measures how well students have mastered Arizona's learning standards. Students must pass the grade 10 AIMS in order to graduate. The goal is for all students to meet or exceed state standards on the test.</description>
+    <description>In 2007-2008 Arizona's Instrument to Measure Standards (AIMS) was used to test students in reading, writing and mathematics in grades 3 through 8 and 10, and in science in grades 4, 8 and high school. AIMS is a standards-based test, which means that it measures how well students have mastered Arizona's learning standards. Students must pass the grade 10 AIMS in order to graduate. The goal is for all students to meet or exceed state standards on the test.</description>
     <abbreviation>AIMS</abbreviation>
     <scale>% meeting or exceeding standards</scale>
     <levelCode>e,m,h</levelCode>

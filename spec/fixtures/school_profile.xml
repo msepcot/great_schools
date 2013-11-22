@@ -18,13 +18,13 @@
   <lat>37.764267</lat>
   <lon>-122.24818</lon>
   <overviewLink>http://www.greatschools.org/modperl/browse_school/ca/1?s_cid=gsapi</overviewLink>
-  <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&id=1&s_cid=gsapi</ratingsLink>
-  <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi</reviewsLink>
+  <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&amp;id=1&amp;s_cid=gsapi</ratingsLink>
+  <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi</reviewsLink>
   <parentReviews>
     <review>
       <schoolName>Alameda High School</schoolName>
       <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
-      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220</reviewLink>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi&amp;lr=true#ps398220</reviewLink>
       <rating>3</rating>
       <submitter>former student</submitter>
       <postedDate>2006/06/06</postedDate>
@@ -33,7 +33,7 @@
     <review>
       <schoolName>Alameda High School</schoolName>
       <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
-      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps354422</reviewLink>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi&amp;lr=true#ps354422</reviewLink>
       <rating>3</rating>
       <submitter>parent</submitter>
       <postedDate>2006/03/12</postedDate>
@@ -42,7 +42,7 @@
     <review>
       <schoolName>Alameda High School</schoolName>
       <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
-      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps214510</reviewLink>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi&amp;lr=true#ps214510</reviewLink>
       <rating>4</rating>
       <submitter>parent</submitter>
       <postedDate>2005/05/06</postedDate>
@@ -51,7 +51,7 @@
     <review>
       <schoolName>Alameda High School</schoolName>
       <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
-      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps154770</reviewLink>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi&amp;lr=true#ps154770</reviewLink>
       <rating>4</rating>
       <submitter>parent</submitter>
       <postedDate>2005/01/04</postedDate>
@@ -60,7 +60,7 @@
     <review>
       <schoolName>Alameda High School</schoolName>
       <schoolAddress>2201 Encinal Ave., Alameda, CA  94501</schoolAddress>
-      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps105868</reviewLink>
+      <reviewLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=1&amp;s_cid=gsapi&amp;lr=true#ps105868</reviewLink>
       <rating>3</rating>
       <submitter>former student</submitter>
       <postedDate>2004/07/29</postedDate>

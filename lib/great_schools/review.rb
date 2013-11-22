@@ -11,8 +11,10 @@ module GreatSchools #:nodoc:
       # * city        - Name of city, with spaces replaced with hyphens. If the city name has hyphens, replace those with underscores.
       # * cutoff_age  - Reviews must have been published after this many days ago to be returned. Only valid for the recent reviews in a city call.
       # * limit       - Maximum number of reviews to return. This defaults to 5.
-      def for_city(state, city, cutoff_age = nil, limit = 5)
-        response = GreatSchools::API.get("reviews/city/#{state.upcase}/#{parameterize(city)}", cutoffAge: cutoff_age, limit: limit)
+      def for_city(state, city, limit = 5, cutoff_age = nil) # TODO options hash instead of limit and cutoff_age?
+        options = { limit: limit, cutoffAge: cutoff_age }.keep_if { |_,v| v.present? }
+
+        response = GreatSchools::API.get("reviews/city/#{state.upcase}/#{parameterize(city)}", options)
 
         Array.wrap(response).map {|review| new(review) }
       end
@@ -23,7 +25,7 @@ module GreatSchools #:nodoc:
       # * state - Two letter state abbreviation
       # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
       # * limit - Maximum number of reviews to return. This defaults to 5.
-      def for_school(state, id, limit = 5)
+      def for_school(state, id, limit = 5) # TODO options hash instead of limit for consistency?
         response = GreatSchools::API.get("reviews/school/#{state.upcase}/#{id}", limit: limit)
 
         Array.wrap(response).map {|review| new(review) }

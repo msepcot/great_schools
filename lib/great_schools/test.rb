@@ -1,16 +1,16 @@
 module GreatSchools #:nodoc:
   class Test < Model
-    attr_accessor :name, :id, :description, :abbreviation, :scale, :level_code, :test_results
+    attr_accessor :name, :id, :description, :abbreviation, :scale, :level_code, :results
 
-    def test_results=(params)
-      @test_results = []
+    def results=(params)
+      @results = []
 
       Array.wrap(params).each do |hash|
-        @test_results << GreatSchools::Result.new(hash)
+        @results << GreatSchools::Result.new(hash)
       end
 
-      @test_results
+      @results
     end
-    alias_method :test_result=, :test_results=
+    alias_method :test_result=, :results=
   end
 end

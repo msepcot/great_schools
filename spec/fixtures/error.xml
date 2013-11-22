@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<error>
+  <errorCode>3</errorCode>
+  <faultString>Invalid API key.</faultString>
+  <date>2013/11/14</date>
+  <call>/reviews/city/CA/Foster-City</call>
+</error>
