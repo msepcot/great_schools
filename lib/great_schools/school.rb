@@ -170,7 +170,7 @@ module GreatSchools # :nodoc:
     end
 
     # Returns test and rank data for the school.
-    def scores
+    def score
       GreatSchools::Score.for_school(state, id)
     end
   end

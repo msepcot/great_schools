@@ -157,11 +157,11 @@ describe GreatSchools::School do
     end
   end
 
-  describe '.scores' do
+  describe '.score' do
     it 'should make a GreatSchools::Score#for_school call using state/gs_id attributes' do
       GreatSchools::Score.should_receive(:for_school).with('CA', 1)
 
-      school.scores
+      school.score
     end
   end
 end

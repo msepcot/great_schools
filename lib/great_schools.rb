@@ -39,6 +39,9 @@ module GreatSchools
   #
   # Before you can start using the GreatSchool API, you must register and
   # request an access key at: http://www.greatschools.org/api/registration.page
+  # --
+  # TODO: load API access key from a config file (great_schools.yml or something)
+  # ++
   class API
     class << self # Class methods
       DOMAIN = 'http://api.greatschools.org'
