@@ -1,4 +1,11 @@
-module GreatSchools #:nodoc:
+module GreatSchools # :nodoc:
+  # = GreatSchools District
+  #
+  # --
+  # TODO: add method to grab schools using +GreatSchools::School#nearby+ with
+  # the +address+, +city+, +state+, and +zip_code+ options (parsing address).
+  # Filter results to schools with a matching district name.
+  # ++
   class District < Model
     attr_accessor :name, :address, :phone, :fax, :website
     attr_accessor :nces_code, :district_rating, :grade_range, :total_schools
@@ -8,12 +15,14 @@ module GreatSchools #:nodoc:
     class << self # Class methods
       # Returns a list of school districts in a city.
       #
-      # +state+ is the two letter state abbreviation.
-      # +city+ is the name of the city.
+      # ==== Attributes
+      #
+      # * +state+ - Two letter state abbreviation
+      # * +city+  - Name of city
       def browse(state, city)
         response = GreatSchools::API.get("districts/#{state.upcase}/#{parameterize(city)}")
 
-        Array.wrap(response).map {|district| new(district) }
+        Array.wrap(response).map { |district| new(district) }
       end
     end
   end

@@ -1,13 +1,17 @@
-module GreatSchools #:nodoc:
+module GreatSchools # :nodoc:
+  # = GreatSchools Score
   class Score < Model
     attr_accessor :school_name, :rank, :tests
 
     class << self # Class methods
-      # = School Test Scores
-      #
       # Returns test and rank data for a specific school.
-      # * state - Two letter state abbreviation
-      # * id    - Numeric id of school. This gsID is included in other listing requests like Browse Schools and Nearby Schools
+      #
+      # ==== Attributes
+      #
+      # * +state+ - Two letter state abbreviation
+      # * +id+    - Numeric id of a school. This GreatSchools ID is included in
+      #             other listing requests like +GreatSchools::School#browse+
+      #             and +GreatSchools::School#nearby+
       def for_school(state, id)
         response = GreatSchools::API.get("school/tests/#{state.upcase}/#{id}")
 
@@ -15,10 +19,20 @@ module GreatSchools #:nodoc:
       end
     end
 
-    def rank=(hash)
-      @rank = GreatSchools::Rank.new(hash)
+    # Set the +GreatSchools::Rank+.
+    #
+    # ==== Attributes
+    #
+    # * +params+ - a +Hash+ of +GreatSchools::Rank+ attributes.
+    def rank=(params)
+      @rank = GreatSchools::Rank.new(params)
     end
 
+    # Set an array of +GreatSchools::Test+.
+    #
+    # ==== Attributes
+    #
+    # * +params+ - a +Hash+ or +Array+ of +GreatSchools::Test+ attributes.
     def tests=(params)
       @tests = []
 

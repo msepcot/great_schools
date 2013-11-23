@@ -6,9 +6,9 @@ describe GreatSchools::Census do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'nearby_cities.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/cities/nearby/CA/Bakersfield?radius=16&sort=distance&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'http://api.greatschools.org/cities/nearby/CA/Bakersfield?radius=16&key=0123456789ABCDEF', body: xml)
 
-      cities = GreatSchools::City.nearby('CA', 'Bakersfield', 16)
+      cities = GreatSchools::City.nearby('CA', 'Bakersfield', radius: 16)
 
       cities.size.should eql(2)
       cities[0].name.should eql('Lamont')
@@ -64,7 +64,7 @@ describe GreatSchools::Census do
     it 'should make a GreatSchools::Review#for_city call using the state/city attributes' do
       city = GreatSchools::City.new(state: 'IL', name: 'Chicago')
 
-      GreatSchools::Review.should_receive(:for_city).with('IL', 'Chicago', nil, 5)
+      GreatSchools::Review.should_receive(:for_city).with('IL', 'Chicago', {})
 
       city.reviews
     end

@@ -6,9 +6,9 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'browse_schools.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/CA/Truckee?sort=name&limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/CA/Truckee?limit=2&key=0123456789ABCDEF', body: xml)
 
-      schools = GreatSchools::School.browse('CA', 'Truckee', limit: 2) # FIXME this is ugly
+      schools = GreatSchools::School.browse('CA', 'Truckee', limit: 2)
 
       schools.size.should eql(2)
       schools[0].name.should eql('Alder Creek Middle School')
@@ -45,7 +45,7 @@ describe GreatSchools::School do
       ))
       FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/nearby?state=CA&zip=94105&limit=2&key=0123456789ABCDEF', body: xml)
 
-      schools = GreatSchools::School.nearby('CA', zip: 94105, limit: 2)
+      schools = GreatSchools::School.nearby('CA', zip_code: 94105, limit: 2)
 
       schools.size.should eql(2)
       schools[0].name.should eql('Youth Chance High School')
@@ -151,7 +151,7 @@ describe GreatSchools::School do
 
   describe '.reviews' do
     it 'should make a GreatSchools::Review#for_school call using state/gs_id attributes' do
-      GreatSchools::Review.should_receive(:for_school).with('CA', 1, 5)
+      GreatSchools::Review.should_receive(:for_school).with('CA', 1, {})
 
       school.reviews
     end

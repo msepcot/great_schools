@@ -1,6 +1,6 @@
 require 'cgi'
 
-module GreatSchools #:nodoc:
+module GreatSchools # :nodoc:
   # = GreatSchools Base Model
   class Model
     class << self # Class methods
@@ -10,8 +10,10 @@ module GreatSchools #:nodoc:
       # Replaces dashes with underscores, spaces with dashes, and URL encodes
       # any special characters.
       #
-      #   parameterize('San Francisco')       => 'San-Francisco'
-      #   parameterize('Cardiff-By-The-Sea')  => 'Cardiff_By_The_Sea'
+      # ==== Examples
+      #
+      #   parameterize('San Francisco')       # => 'San-Francisco'
+      #   parameterize('Cardiff-By-The-Sea')  # => 'Cardiff_By_The_Sea'
       def parameterize(string)
         CGI.escape(string.gsub('-', '_').gsub(' ', '-'))
       end
@@ -30,7 +32,9 @@ module GreatSchools #:nodoc:
 
     # Makes an underscored, lowercase form from the expression in the string.
     #
-    #   underscore('myACRONYMString') => 'my_acronym_string'
+    # ==== Examples
+    #
+    #   underscore('myACRONYMString') # => 'my_acronym_string'
     def underscore(word)
       word = word.to_s.dup # unfreeze any frozen strings
       word.gsub!(/([a-z])([A-Z])/,'\1_\2')          # myACRONYMString   => my_ACRONYMString

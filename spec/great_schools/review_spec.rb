@@ -8,7 +8,7 @@ describe GreatSchools::Review do
       ))
       FakeWeb.register_uri(:get, 'http://api.greatschools.org/reviews/city/CA/Alameda?limit=2&key=0123456789ABCDEF', body: xml)
 
-      reviews = GreatSchools::Review.for_city('CA', 'Alameda', 2)
+      reviews = GreatSchools::Review.for_city('CA', 'Alameda', limit: 2)
 
       reviews.size.should eql(2)
       reviews[0].submitter.should eql('former student')
@@ -32,7 +32,7 @@ describe GreatSchools::Review do
       ))
       FakeWeb.register_uri(:get, 'http://api.greatschools.org/reviews/school/CA/1?limit=2&key=0123456789ABCDEF', body: xml)
 
-      reviews = GreatSchools::Review.for_school('CA', 1, 2)
+      reviews = GreatSchools::Review.for_school('CA', 1, limit: 2)
 
       reviews.size.should eql(2)
       reviews[0].submitter.should eql('former student')

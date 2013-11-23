@@ -16,6 +16,7 @@ require 'great_schools/version'
 
 require 'active_support'
 require 'active_support/core_ext/array/wrap'
+require 'active_support/core_ext/hash/slice'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/object/try'
 
@@ -42,10 +43,22 @@ module GreatSchools
     class << self # Class methods
       DOMAIN = 'http://api.greatschools.org'
 
+      # The API access key, must be set before making any requests.
       attr_accessor :key
 
+      # Makes an API request to +path+ with the supplied query +parameters+ (merges
+      # in the API access +key+).
+      #
+      # Returns a +Hash+ or an +Array+ with the encompassing XML container stripped.
+      #
+      # Raises a +GreatSchools::Error+ if the server response code is not 200.
+      #
+      # ==== Attributes
+      #
+      # * +path+        - component path of the URL
+      # * +parameters+  - +Hash+ of query string elements
       def get(path, parameters = {})
-        parameters.merge!(key: key)
+        parameters.merge!(key: key).keep_if { |_,v| v.present? }
 
         response = HTTParty.get("#{DOMAIN}/#{path}", query: parameters, format: :xml)
 
@@ -58,6 +71,8 @@ module GreatSchools
 
     private
 
+      # Returns a +Hash+ of a single element, or an +Array+ of elements without
+      # the container hash.
       def parse(hash)
         if hash.keys.size.eql?(1) # we have an array of elements
           hash.values.first # strip the container and return the array

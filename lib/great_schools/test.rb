@@ -1,7 +1,13 @@
-module GreatSchools #:nodoc:
+module GreatSchools # :nodoc:
+  # = GreatSchools Test
   class Test < Model
     attr_accessor :name, :id, :description, :abbreviation, :scale, :level_code, :results
 
+    # Set an array of +GreatSchools::Result+.
+    #
+    # ==== Attributes
+    #
+    # * +params+ - a +Hash+ or +Array+ of +GreatSchools::Result+ attributes.
     def results=(params)
       @results = []
 
