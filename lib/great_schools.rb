@@ -77,7 +77,7 @@ module GreatSchools
       # Returns a +Hash+ of a single element, or an +Array+ of elements without
       # the container hash.
       def parse(hash)
-        if hash.keys.size.eql?(1) # we have an array of elements
+        if hash && hash.keys.size.eql?(1) # we have an array of elements
           hash.values.first # strip the container and return the array
         else # we have one element, return the hash
           hash

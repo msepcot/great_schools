@@ -68,6 +68,17 @@ describe GreatSchools::School do
       school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=11536&s_cid=gsapi')
       school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=11536&s_cid=gsapi')
     end
+
+    it 'should handle no results coming back from the web service' do
+      xml = File.read(File.expand_path(
+        File.join(File.dirname(__FILE__), '..', 'fixtures', 'nearby_schools_empty.xml')
+      ))
+      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/nearby?state=CA&zip=00000&limit=2&key=0123456789ABCDEF', body: xml)
+
+      schools = GreatSchools::School.nearby('CA', zip_code: '00000', limit: 2)
+
+      schools.size.should eql(0)
+    end
   end
 
   describe '#profile' do
