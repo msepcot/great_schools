@@ -3,10 +3,10 @@ module GreatSchools # :nodoc:
   class School < Model
     attr_accessor :id, :name, :type, :grade_range, :enrollment, :district_id, :district, :district_nces_id, :nces_id
     attr_accessor :city, :state, :address, :phone, :fax, :website, :latitude, :longitude
-    attr_accessor :overview_link, :ratings_link, :reviews_link, :parent_reviews, :parent_rating
-    attr_accessor :school_stats_link, :gs_rating
+    attr_accessor :overview_link, :ratings_link, :reviews_link, :school_stats_link, :parent_reviews, :rating, :parent_rating
 
     alias_method :gs_id=, :id=
+    alias_method :gs_rating=, :rating=
     alias_method :lat=, :latitude=
     alias_method :lon=, :longitude=
 

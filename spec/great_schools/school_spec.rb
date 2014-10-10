@@ -20,6 +20,8 @@ describe GreatSchools::School do
       school.type.should eql('public')
       school.grade_range.should eql('6-8')
       school.enrollment.should eql('598')
+      school.rating.should eql('8')
+      school.parent_rating.should eql('4')
       school.city.should eql('Truckee')
       school.state.should eql('CA')
       school.district_id.should eql('509')
@@ -35,6 +37,7 @@ describe GreatSchools::School do
       school.overview_link.should eql('http://www.greatschools.org/modperl/browse_school/ca/13978?s_cid=gsapi')
       school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=13978&s_cid=gsapi')
       school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=13978&s_cid=gsapi')
+      school.school_stats_link.should eql('http://www.greatschools.org/cgi-bin/CA/otherprivate/13978')
     end
   end
 

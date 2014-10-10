@@ -6,6 +6,8 @@
     <type>public</type>
     <gradeRange>6-8</gradeRange>
     <enrollment>598</enrollment>
+    <gsRating>8</gsRating>
+    <parentRating>4</parentRating>
     <city>Truckee</city>
     <state>CA</state>
     <districtId>509</districtId>
@@ -21,6 +23,7 @@
     <overviewLink>http://www.greatschools.org/modperl/browse_school/ca/13978?s_cid=gsapi</overviewLink>
     <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&amp;id=13978&amp;s_cid=gsapi</ratingsLink>
     <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=13978&amp;s_cid=gsapi</reviewsLink>
+    <schoolStatsLink>http://www.greatschools.org/cgi-bin/CA/otherprivate/13978</schoolStatsLink>
   </school>
   <school>
     <gsId>11039</gsId>
@@ -28,6 +31,8 @@
     <type>public</type>
     <gradeRange>9-12</gradeRange>
     <enrollment>47</enrollment>
+    <gsRating>8</gsRating>
+    <parentRating>4</parentRating>
     <city>Truckee</city>
     <state>CA</state>
     <districtId>509</districtId>
@@ -42,5 +47,6 @@
     <overviewLink>http://www.greatschools.org/modperl/browse_school/ca/11039?s_cid=gsapi</overviewLink>
     <ratingsLink>http://www.greatschools.org/school/rating.page?state=CA&amp;id=11039&amp;s_cid=gsapi</ratingsLink>
     <reviewsLink>http://www.greatschools.org/school/parentReviews.page?state=CA&amp;id=11039&amp;s_cid=gsapi</reviewsLink>
+    <schoolStatsLink>http://www.greatschools.org/cgi-bin/CA/otherprivate/11039</schoolStatsLink>
   </school>
 </schools>
