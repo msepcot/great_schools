@@ -39,6 +39,13 @@ describe GreatSchools::School do
       school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=13978&s_cid=gsapi')
       school.school_stats_link.should eql('http://www.greatschools.org/cgi-bin/CA/otherprivate/13978')
     end
+
+    it 'should return an empty array if the server response with no data (404)' do
+      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/AS/Pago-Pago?limit=2&key=0123456789ABCDEF', body: nil, status: ['404', 'Not Found'])
+
+      schools = GreatSchools::School.browse('AS', 'Pago Pago', limit: 2)
+      schools.size.should eql(0)
+    end
   end
 
   describe '#nearby' do

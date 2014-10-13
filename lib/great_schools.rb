@@ -67,6 +67,8 @@ module GreatSchools
 
         if response.code.eql?(200)
           parse(response.values.first) # strip the container element before parsing
+        elsif response.body.blank?
+          nil # no error to parse, return nothing
         else
           raise GreatSchools::Error.new(response)
         end
