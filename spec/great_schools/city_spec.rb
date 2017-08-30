@@ -6,7 +6,7 @@ describe GreatSchools::Census do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'nearby_cities.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/cities/nearby/CA/Bakersfield?radius=16&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/cities/nearby/CA/Bakersfield?radius=16&key=0123456789ABCDEF', body: xml)
 
       cities = GreatSchools::City.nearby('CA', 'Bakersfield', radius: 16)
 
@@ -33,7 +33,7 @@ describe GreatSchools::Census do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'city_overview.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/cities/AK/Anchorage?key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/cities/AK/Anchorage?key=0123456789ABCDEF', body: xml)
 
       city = GreatSchools::City.overview('AK', 'Anchorage')
 

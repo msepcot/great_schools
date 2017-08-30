@@ -6,7 +6,7 @@ describe GreatSchools::Review do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_reviews.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/reviews/city/CA/Alameda?limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/reviews/city/CA/Alameda?limit=2&key=0123456789ABCDEF', body: xml)
 
       reviews = GreatSchools::Review.for_city('CA', 'Alameda', limit: 2)
 
@@ -30,7 +30,7 @@ describe GreatSchools::Review do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_reviews.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/reviews/school/CA/1?limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/reviews/school/CA/1?limit=2&key=0123456789ABCDEF', body: xml)
 
       reviews = GreatSchools::Review.for_school('CA', 1, limit: 2)
 
@@ -53,7 +53,7 @@ describe GreatSchools::Review do
     xml = File.read(File.expand_path(
       File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_profile.xml')
     ))
-    FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/CA/1?key=0123456789ABCDEF', body: xml)
+    FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/CA/1?key=0123456789ABCDEF', body: xml)
 
     school = GreatSchools::School.profile('CA', 1)
     reviews = school.parent_reviews

@@ -5,7 +5,7 @@ describe GreatSchools::Test do
     xml = File.read(File.expand_path(
       File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_test_scores.xml')
     ))
-    FakeWeb.register_uri(:get, 'http://api.greatschools.org/school/tests/AZ/1?key=0123456789ABCDEF', body: xml)
+    FakeWeb.register_uri(:get, 'https://api.greatschools.org/school/tests/AZ/1?key=0123456789ABCDEF', body: xml)
 
     score = GreatSchools::Score.for_school('AZ', 1)
     tests = score.tests

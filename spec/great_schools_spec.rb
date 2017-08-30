@@ -5,7 +5,7 @@ describe GreatSchools::API do
     xml = File.read(File.expand_path(
       File.join(File.dirname(__FILE__), 'fixtures', 'error.xml')
     ))
-    FakeWeb.register_uri(:get, 'http://api.greatschools.org/reviews/city/CA/Foster-City?key=0123456789ABCDEF', body: xml, status: [401, 'Unauthorized'])
+    FakeWeb.register_uri(:get, 'https://api.greatschools.org/reviews/city/CA/Foster-City?key=0123456789ABCDEF', body: xml, status: [401, 'Unauthorized'])
 
     expect {
       GreatSchools::API.get('reviews/city/CA/Foster-City')

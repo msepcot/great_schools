@@ -5,7 +5,7 @@ describe GreatSchools::Ethnicity do
     xml = File.read(File.expand_path(
       File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_census_data.xml')
     ))
-    FakeWeb.register_uri(:get, 'http://api.greatschools.org/school/census/ND/20?key=0123456789ABCDEF', body: xml)
+    FakeWeb.register_uri(:get, 'https://api.greatschools.org/school/census/ND/20?key=0123456789ABCDEF', body: xml)
 
     census = GreatSchools::Census.for_school('ND', 20)
     ethnicity = census.ethnicities.first
