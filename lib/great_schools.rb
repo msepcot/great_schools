@@ -44,7 +44,7 @@ module GreatSchools
   # ++
   class API
     class << self # Class methods
-      DOMAIN = 'http://api.greatschools.org'
+      DOMAIN = 'https://api.greatschools.org'
 
       # The API access key, must be set before making any requests.
       attr_accessor :key

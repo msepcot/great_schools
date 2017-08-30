@@ -6,7 +6,7 @@ describe GreatSchools::District do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'browse_districts.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/districts/CA/San-Francisco?key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/districts/CA/San-Francisco?key=0123456789ABCDEF', body: xml)
 
       districts = GreatSchools::District.browse('CA', 'San Francisco')
 

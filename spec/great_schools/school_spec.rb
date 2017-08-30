@@ -6,7 +6,7 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'browse_schools.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/CA/Truckee?limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/CA/Truckee?limit=2&key=0123456789ABCDEF', body: xml)
 
       schools = GreatSchools::School.browse('CA', 'Truckee', limit: 2)
 
@@ -41,7 +41,7 @@ describe GreatSchools::School do
     end
 
     it 'should return an empty array if the server response with no data (404)' do
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/AS/Pago-Pago?limit=2&key=0123456789ABCDEF', body: nil, status: ['404', 'Not Found'])
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/AS/Pago-Pago?limit=2&key=0123456789ABCDEF', body: nil, status: ['404', 'Not Found'])
 
       schools = GreatSchools::School.browse('AS', 'Pago Pago', limit: 2)
       schools.size.should eql(0)
@@ -53,7 +53,7 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'nearby_schools.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/nearby?state=CA&zip=94105&limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/nearby?state=CA&zip=94105&limit=2&key=0123456789ABCDEF', body: xml)
 
       schools = GreatSchools::School.nearby('CA', zip_code: 94105, limit: 2)
 
@@ -83,7 +83,7 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'nearby_schools_empty.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/nearby?state=CA&zip=00000&limit=2&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/nearby?state=CA&zip=00000&limit=2&key=0123456789ABCDEF', body: xml)
 
       schools = GreatSchools::School.nearby('CA', zip_code: '00000', limit: 2)
 
@@ -96,7 +96,7 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_profile.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/schools/CA/1?key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/CA/1?key=0123456789ABCDEF', body: xml)
 
       school = GreatSchools::School.profile('CA', 1)
 
@@ -132,7 +132,7 @@ describe GreatSchools::School do
       xml = File.read(File.expand_path(
         File.join(File.dirname(__FILE__), '..', 'fixtures', 'school_search.xml')
       ))
-      FakeWeb.register_uri(:get, 'http://api.greatschools.org/search/schools?limit=2&q=Alameda%20Christian&state=CA&key=0123456789ABCDEF', body: xml)
+      FakeWeb.register_uri(:get, 'https://api.greatschools.org/search/schools?limit=2&q=Alameda%20Christian&state=CA&key=0123456789ABCDEF', body: xml)
 
       schools = GreatSchools::School.search('CA', 'Alameda Christian', limit: 2)
 
