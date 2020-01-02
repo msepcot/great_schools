@@ -10,8 +10,8 @@ describe GreatSchools::Ethnicity do
     census = GreatSchools::Census.for_school('ND', 20)
     ethnicity = census.ethnicities.first
 
-    ethnicity.name.should eql('White, non-Hispanic')
-    ethnicity.value.should eql('91.0693')
-    ethnicity.year.should eql('2007')
+    expect(ethnicity.name).to eql('White, non-Hispanic')
+    expect(ethnicity.value).to eql('91.0693')
+    expect(ethnicity.year).to eql('2007')
   end
 end

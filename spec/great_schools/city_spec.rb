@@ -10,21 +10,21 @@ describe GreatSchools::Census do
 
       cities = GreatSchools::City.nearby('CA', 'Bakersfield', radius: 16)
 
-      cities.size.should eql(2)
-      cities[0].name.should eql('Lamont')
-      cities[1].name.should eql('Arvin')
+      expect(cities.size).to eq(2)
+      expect(cities[0].name).to eq('Lamont')
+      expect(cities[1].name).to eq('Arvin')
 
       city = cities.first
-      city.state.should eql('CA')
-      city.name.should eql('Lamont')
-      city.rating.should eql('3')
-      city.total_schools.should eql('5')
-      city.elementary_schools.should eql('3')
-      city.middle_schools.should eql('2')
-      city.high_schools.should eql('1')
-      city.public_schools.should eql('5')
-      city.charter_schools.should eql('0')
-      city.private_schools.should eql('0')
+      expect(city.state).to eq('CA')
+      expect(city.name).to eq('Lamont')
+      expect(city.rating).to eq('3')
+      expect(city.total_schools).to eq('5')
+      expect(city.elementary_schools).to eq('3')
+      expect(city.middle_schools).to eq('2')
+      expect(city.high_schools).to eq('1')
+      expect(city.public_schools).to eq('5')
+      expect(city.charter_schools).to eq('0')
+      expect(city.private_schools).to eq('0')
     end
   end
 
@@ -37,16 +37,16 @@ describe GreatSchools::Census do
 
       city = GreatSchools::City.overview('AK', 'Anchorage')
 
-      city.state.should eql('AK')
-      city.name.should eql('Anchorage')
-      city.rating.should eql('7')
-      city.total_schools.should eql('103')
-      city.elementary_schools.should eql('76')
-      city.middle_schools.should eql('41')
-      city.high_schools.should eql('33')
-      city.public_schools.should eql('74')
-      city.charter_schools.should eql('6')
-      city.private_schools.should eql('23')
+      expect(city.state).to eq('AK')
+      expect(city.name).to eq('Anchorage')
+      expect(city.rating).to eq('7')
+      expect(city.total_schools).to eq('103')
+      expect(city.elementary_schools).to eq('76')
+      expect(city.middle_schools).to eq('41')
+      expect(city.high_schools).to eq('33')
+      expect(city.public_schools).to eq('74')
+      expect(city.charter_schools).to eq('6')
+      expect(city.private_schools).to eq('23')
     end
   end
 
@@ -54,7 +54,7 @@ describe GreatSchools::Census do
     it 'should make a GreatSchools::District#browse call using the state/city attributes' do
       city = GreatSchools::City.new(state: 'IL', city: 'Chicago')
 
-      GreatSchools::District.should_receive(:browse).with('IL', 'Chicago')
+      expect(GreatSchools::District).to receive(:browse).with('IL', 'Chicago')
 
       city.districts
     end
@@ -64,7 +64,7 @@ describe GreatSchools::Census do
     it 'should make a GreatSchools::Review#for_city call using the state/city attributes' do
       city = GreatSchools::City.new(state: 'IL', name: 'Chicago')
 
-      GreatSchools::Review.should_receive(:for_city).with('IL', 'Chicago', {})
+      expect(GreatSchools::Review).to receive(:for_city).with('IL', 'Chicago', {})
 
       city.reviews
     end

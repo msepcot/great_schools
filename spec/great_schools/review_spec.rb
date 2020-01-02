@@ -10,18 +10,18 @@ describe GreatSchools::Review do
 
       reviews = GreatSchools::Review.for_city('CA', 'Alameda', limit: 2)
 
-      reviews.size.should eql(2)
-      reviews[0].submitter.should eql('former student')
-      reviews[1].submitter.should eql('parent')
+      expect(reviews.size).to eql(2)
+      expect(reviews[0].submitter).to eql('former student')
+      expect(reviews[1].submitter).to eql('parent')
 
       review = reviews.first
-      review.school_name.should eql('Alameda High School')
-      review.school_address.should eql('2201 Encinal Ave., Alameda, CA  94501')
-      review.review_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
-      review.rating.should eql('3')
-      review.submitter.should eql('former student')
-      review.posted_date.should eql('2006/06/06')
-      review.comments.should eql('The staff gets on the level of the students and everything is kaotic.')
+      expect(review.school_name).to eql('Alameda High School')
+      expect(review.school_address).to eql('2201 Encinal Ave., Alameda, CA  94501')
+      expect(review.review_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
+      expect(review.rating).to eql('3')
+      expect(review.submitter).to eql('former student')
+      expect(review.posted_date).to eql('2006/06/06')
+      expect(review.comments).to eql('The staff gets on the level of the students and everything is kaotic.')
     end
   end
 
@@ -34,18 +34,18 @@ describe GreatSchools::Review do
 
       reviews = GreatSchools::Review.for_school('CA', 1, limit: 2)
 
-      reviews.size.should eql(2)
-      reviews[0].submitter.should eql('former student')
-      reviews[1].submitter.should eql('parent')
+      expect(reviews.size).to eql(2)
+      expect(reviews[0].submitter).to eql('former student')
+      expect(reviews[1].submitter).to eql('parent')
 
       review = reviews.first
-      review.school_name.should eql('Alameda High School')
-      review.school_address.should eql('2201 Encinal Ave., Alameda, CA  94501')
-      review.review_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
-      review.rating.should eql('3')
-      review.submitter.should eql('former student')
-      review.posted_date.should eql('2006/06/06')
-      review.comments.should eql('The staff gets on the level of the students and everything is kaotic.')
+      expect(review.school_name).to eql('Alameda High School')
+      expect(review.school_address).to eql('2201 Encinal Ave., Alameda, CA  94501')
+      expect(review.review_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
+      expect(review.rating).to eql('3')
+      expect(review.submitter).to eql('former student')
+      expect(review.posted_date).to eql('2006/06/06')
+      expect(review.comments).to eql('The staff gets on the level of the students and everything is kaotic.')
     end
   end
 
@@ -58,15 +58,15 @@ describe GreatSchools::Review do
     school = GreatSchools::School.profile('CA', 1)
     reviews = school.parent_reviews
 
-    reviews.size.should eql(5)
+    expect(reviews.size).to eql(5)
 
     review = reviews.first
-    review.school_name.should eql('Alameda High School')
-    review.school_address.should eql('2201 Encinal Ave., Alameda, CA  94501')
-    review.review_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
-    review.rating.should eql('3')
-    review.submitter.should eql('former student')
-    review.posted_date.should eql('2006/06/06')
-    review.comments.should eql('The staff gets on the level of the students and everything is kaotic.')
+    expect(review.school_name).to eql('Alameda High School')
+    expect(review.school_address).to eql('2201 Encinal Ave., Alameda, CA  94501')
+    expect(review.review_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi&lr=true#ps398220')
+    expect(review.rating).to eql('3')
+    expect(review.submitter).to eql('former student')
+    expect(review.posted_date).to eql('2006/06/06')
+    expect(review.comments).to eql('The staff gets on the level of the students and everything is kaotic.')
   end
 end
