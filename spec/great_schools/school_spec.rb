@@ -10,41 +10,41 @@ describe GreatSchools::School do
 
       schools = GreatSchools::School.browse('CA', 'Truckee', limit: 2)
 
-      schools.size.should eql(2)
-      schools[0].name.should eql('Alder Creek Middle School')
-      schools[1].name.should eql('Cold Stream Alternative School')
+      expect(schools.size).to eql(2)
+      expect(schools[0].name).to eql('Alder Creek Middle School')
+      expect(schools[1].name).to eql('Cold Stream Alternative School')
 
       school = schools.first
-      school.id.should eql('13978')
-      school.name.should eql('Alder Creek Middle School')
-      school.type.should eql('public')
-      school.grade_range.should eql('6-8')
-      school.enrollment.should eql('598')
-      school.rating.should eql('8')
-      school.parent_rating.should eql('4')
-      school.city.should eql('Truckee')
-      school.state.should eql('CA')
-      school.district_id.should eql('509')
-      school.district.should eql('Tahoe-Truckee Joint Unified School District')
-      school.district_nces_id.should eql('0638770')
-      school.address.should eql('10931 Alder Dr., Truckee, CA  96161')
-      school.phone.should eql('(530) 582-2750')
-      school.fax.should eql('(530) 582-7640')
-      school.website.should eql('http://www.ttusd.org')
-      school.nces_id.should eql('063877011005')
-      school.latitude.should eql('39.3454')
-      school.longitude.should eql('-120.1735')
-      school.overview_link.should eql('http://www.greatschools.org/modperl/browse_school/ca/13978?s_cid=gsapi')
-      school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=13978&s_cid=gsapi')
-      school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=13978&s_cid=gsapi')
-      school.school_stats_link.should eql('http://www.greatschools.org/cgi-bin/CA/otherprivate/13978')
+      expect(school.id).to eql('13978')
+      expect(school.name).to eql('Alder Creek Middle School')
+      expect(school.type).to eql('public')
+      expect(school.grade_range).to eql('6-8')
+      expect(school.enrollment).to eql('598')
+      expect(school.rating).to eql('8')
+      expect(school.parent_rating).to eql('4')
+      expect(school.city).to eql('Truckee')
+      expect(school.state).to eql('CA')
+      expect(school.district_id).to eql('509')
+      expect(school.district).to eql('Tahoe-Truckee Joint Unified School District')
+      expect(school.district_nces_id).to eql('0638770')
+      expect(school.address).to eql('10931 Alder Dr., Truckee, CA  96161')
+      expect(school.phone).to eql('(530) 582-2750')
+      expect(school.fax).to eql('(530) 582-7640')
+      expect(school.website).to eql('http://www.ttusd.org')
+      expect(school.nces_id).to eql('063877011005')
+      expect(school.latitude).to eql('39.3454')
+      expect(school.longitude).to eql('-120.1735')
+      expect(school.overview_link).to eql('http://www.greatschools.org/modperl/browse_school/ca/13978?s_cid=gsapi')
+      expect(school.ratings_link).to eql('http://www.greatschools.org/school/rating.page?state=CA&id=13978&s_cid=gsapi')
+      expect(school.reviews_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=13978&s_cid=gsapi')
+      expect(school.school_stats_link).to eql('http://www.greatschools.org/cgi-bin/CA/otherprivate/13978')
     end
 
     it 'should return an empty array if the server response with no data (404)' do
       FakeWeb.register_uri(:get, 'https://api.greatschools.org/schools/AS/Pago-Pago?limit=2&key=0123456789ABCDEF', body: nil, status: ['404', 'Not Found'])
 
       schools = GreatSchools::School.browse('AS', 'Pago Pago', limit: 2)
-      schools.size.should eql(0)
+      expect(schools.size).to eql(0)
     end
   end
 
@@ -57,26 +57,26 @@ describe GreatSchools::School do
 
       schools = GreatSchools::School.nearby('CA', zip_code: 94105, limit: 2)
 
-      schools.size.should eql(2)
-      schools[0].name.should eql('Youth Chance High School')
-      schools[1].name.should eql('Notre Dame des Victoires School')
+      expect(schools.size).to eql(2)
+      expect(schools[0].name).to eql('Youth Chance High School')
+      expect(schools[1].name).to eql('Notre Dame des Victoires School')
 
       school = schools.first
-      school.id.should eql('11536')
-      school.name.should eql('Youth Chance High School')
-      school.type.should eql('private')
-      school.grade_range.should eql('10-12')
-      school.enrollment.should eql('25')
-      school.city.should eql('San Francisco')
-      school.state.should eql('CA')
-      school.address.should eql('169 Steuart Street, San Francisco, CA  94105')
-      school.phone.should eql('(415) 615-1337')
-      school.nces_id.should eql('A9900759')
-      school.latitude.should eql('37.7924')
-      school.longitude.should eql('-122.3921')
-      school.overview_link.should eql('http://www.greatschools.org/cgi-bin/ca/private/11536?s_cid=gsapi')
-      school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=11536&s_cid=gsapi')
-      school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=11536&s_cid=gsapi')
+      expect(school.id).to eql('11536')
+      expect(school.name).to eql('Youth Chance High School')
+      expect(school.type).to eql('private')
+      expect(school.grade_range).to eql('10-12')
+      expect(school.enrollment).to eql('25')
+      expect(school.city).to eql('San Francisco')
+      expect(school.state).to eql('CA')
+      expect(school.address).to eql('169 Steuart Street, San Francisco, CA  94105')
+      expect(school.phone).to eql('(415) 615-1337')
+      expect(school.nces_id).to eql('A9900759')
+      expect(school.latitude).to eql('37.7924')
+      expect(school.longitude).to eql('-122.3921')
+      expect(school.overview_link).to eql('http://www.greatschools.org/cgi-bin/ca/private/11536?s_cid=gsapi')
+      expect(school.ratings_link).to eql('http://www.greatschools.org/school/rating.page?state=CA&id=11536&s_cid=gsapi')
+      expect(school.reviews_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=11536&s_cid=gsapi')
     end
 
     it 'should handle no results coming back from the web service' do
@@ -87,7 +87,7 @@ describe GreatSchools::School do
 
       schools = GreatSchools::School.nearby('CA', zip_code: '00000', limit: 2)
 
-      schools.size.should eql(0)
+      expect(schools.size).to eql(0)
     end
   end
 
@@ -100,29 +100,29 @@ describe GreatSchools::School do
 
       school = GreatSchools::School.profile('CA', 1)
 
-      school.id.should eql('1')
-      school.name.should eql('Alameda High School')
-      school.type.should eql('public')
-      school.grade_range.should eql('9-12')
-      school.enrollment.should eql('1938')
-      school.city.should eql('Alameda')
-      school.state.should eql('CA')
-      school.district_id.should eql('1')
-      school.district.should eql('Alameda City Unified School District')
-      school.district_nces_id.should eql('0601770')
-      school.address.should eql('2201 Encinal Ave., Alameda, CA  94501')
-      school.phone.should eql('(510) 337-7022')
-      school.fax.should eql('(510) 521-4740')
-      school.website.should eql('http://ahs.alameda.k12.ca.us/')
-      school.nces_id.should eql('060177000041')
-      school.latitude.should eql('37.764267')
-      school.longitude.should eql('-122.24818')
-      school.overview_link.should eql('http://www.greatschools.org/modperl/browse_school/ca/1?s_cid=gsapi')
-      school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=1&s_cid=gsapi')
-      school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi')
+      expect(school.id).to eql('1')
+      expect(school.name).to eql('Alameda High School')
+      expect(school.type).to eql('public')
+      expect(school.grade_range).to eql('9-12')
+      expect(school.enrollment).to eql('1938')
+      expect(school.city).to eql('Alameda')
+      expect(school.state).to eql('CA')
+      expect(school.district_id).to eql('1')
+      expect(school.district).to eql('Alameda City Unified School District')
+      expect(school.district_nces_id).to eql('0601770')
+      expect(school.address).to eql('2201 Encinal Ave., Alameda, CA  94501')
+      expect(school.phone).to eql('(510) 337-7022')
+      expect(school.fax).to eql('(510) 521-4740')
+      expect(school.website).to eql('http://ahs.alameda.k12.ca.us/')
+      expect(school.nces_id).to eql('060177000041')
+      expect(school.latitude).to eql('37.764267')
+      expect(school.longitude).to eql('-122.24818')
+      expect(school.overview_link).to eql('http://www.greatschools.org/modperl/browse_school/ca/1?s_cid=gsapi')
+      expect(school.ratings_link).to eql('http://www.greatschools.org/school/rating.page?state=CA&id=1&s_cid=gsapi')
+      expect(school.reviews_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=1&s_cid=gsapi')
 
       school.parent_reviews.each do |review|
-        review.should be_a(GreatSchools::Review)
+        expect(review).to be_a(GreatSchools::Review)
       end
     end
   end
@@ -136,27 +136,27 @@ describe GreatSchools::School do
 
       schools = GreatSchools::School.search('CA', 'Alameda Christian', limit: 2)
 
-      schools.size.should eql(2)
-      schools[0].name.should eql('Alameda Christian School')
-      schools[1].name.should eql('Chinese Christian Schools-Alameda')
+      expect(schools.size).to eql(2)
+      expect(schools[0].name).to eql('Alameda Christian School')
+      expect(schools[1].name).to eql('Chinese Christian Schools-Alameda')
 
       school = schools.first
-      school.id.should eql('8485')
-      school.name.should eql('Alameda Christian School')
-      school.type.should eql('private')
-      school.grade_range.should eql('K-8')
-      school.enrollment.should eql('52')
-      school.parent_rating.should eql('5')
-      school.city.should eql('Alameda')
-      school.state.should eql('CA')
-      school.address.should eql('2226 Pacific Ave, Alameda, CA 94501')
-      school.phone.should eql('(510) 523-1000')
-      school.nces_id.should eql('00079445')
-      school.latitude.should eql('37.768623')
-      school.longitude.should eql('-122.243965')
-      school.overview_link.should eql('http://www.greatschools.org/cgi-bin/ca/private/8485?s_cid=gsapi')
-      school.ratings_link.should eql('http://www.greatschools.org/school/rating.page?state=CA&id=8485&s_cid=gsapi')
-      school.reviews_link.should eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=8485&s_cid=gsapi')
+      expect(school.id).to eql('8485')
+      expect(school.name).to eql('Alameda Christian School')
+      expect(school.type).to eql('private')
+      expect(school.grade_range).to eql('K-8')
+      expect(school.enrollment).to eql('52')
+      expect(school.parent_rating).to eql('5')
+      expect(school.city).to eql('Alameda')
+      expect(school.state).to eql('CA')
+      expect(school.address).to eql('2226 Pacific Ave, Alameda, CA 94501')
+      expect(school.phone).to eql('(510) 523-1000')
+      expect(school.nces_id).to eql('00079445')
+      expect(school.latitude).to eql('37.768623')
+      expect(school.longitude).to eql('-122.243965')
+      expect(school.overview_link).to eql('http://www.greatschools.org/cgi-bin/ca/private/8485?s_cid=gsapi')
+      expect(school.ratings_link).to eql('http://www.greatschools.org/school/rating.page?state=CA&id=8485&s_cid=gsapi')
+      expect(school.reviews_link).to eql('http://www.greatschools.org/school/parentReviews.page?state=CA&id=8485&s_cid=gsapi')
     end
   end
 
@@ -164,7 +164,7 @@ describe GreatSchools::School do
 
   describe '.census' do
     it 'should make a GreatSchools::Census#for_school call using state/gs_id attributes' do
-      GreatSchools::Census.should_receive(:for_school).with('CA', 1)
+      expect(GreatSchools::Census).to receive(:for_school).with('CA', 1)
 
       school.census
     end
@@ -172,7 +172,7 @@ describe GreatSchools::School do
 
   describe '.reviews' do
     it 'should make a GreatSchools::Review#for_school call using state/gs_id attributes' do
-      GreatSchools::Review.should_receive(:for_school).with('CA', 1, {})
+      expect(GreatSchools::Review).to receive(:for_school).with('CA', 1, {})
 
       school.reviews
     end
@@ -180,7 +180,7 @@ describe GreatSchools::School do
 
   describe '.score' do
     it 'should make a GreatSchools::Score#for_school call using state/gs_id attributes' do
-      GreatSchools::Score.should_receive(:for_school).with('CA', 1)
+      expect(GreatSchools::Score).to receive(:for_school).with('CA', 1)
 
       school.score
     end

@@ -11,16 +11,16 @@ describe GreatSchools::Score do
       score = GreatSchools::Score.for_school('AZ', 1)
       results = score.tests.first.results
 
-      results.size.should eql(2)
-      results[0].subject_name.should eql('Writing')
-      results[1].subject_name.should eql('Reading')
+      expect(results.size).to eql(2)
+      expect(results[0].subject_name).to eql('Writing')
+      expect(results[1].subject_name).to eql('Reading')
 
       result = results.first
-      result.grade_name.should eql('10')
-      result.score.should eql('81.0')
-      result.subject_name.should eql('Writing')
-      result.test_id.should eql('AZ00137')
-      result.year.should eql('2008')
+      expect(result.grade_name).to eql('10')
+      expect(result.score).to eql('81.0')
+      expect(result.subject_name).to eql('Writing')
+      expect(result.test_id).to eql('AZ00137')
+      expect(result.year).to eql('2008')
     end
   end
 end

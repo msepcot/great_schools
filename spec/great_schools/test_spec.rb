@@ -10,15 +10,15 @@ describe GreatSchools::Test do
     score = GreatSchools::Score.for_school('AZ', 1)
     tests = score.tests
 
-    tests.size.should eql(1)
+    expect(tests.size).to eql(1)
 
     test = tests.first
-    test.name.should eql('Arizona\'s Instrument to Measure Standards')
-    test.id.should eql('AZ00137')
-    test.abbreviation.should eql('AIMS')
-    test.scale.should eql('% meeting or exceeding standards')
-    test.level_code.should eql('e,m,h')
-    test.description.should eql(<<-TEXT.squish)
+    expect(test.name).to eql('Arizona\'s Instrument to Measure Standards')
+    expect(test.id).to eql('AZ00137')
+    expect(test.abbreviation).to eql('AIMS')
+    expect(test.scale).to eql('% meeting or exceeding standards')
+    expect(test.level_code).to eql('e,m,h')
+    expect(test.description).to eql(<<-TEXT.squish)
       In 2007-2008 Arizona's Instrument to Measure Standards (AIMS) was used to
       test students in reading, writing and mathematics in grades 3 through 8
       and 10, and in science in grades 4, 8 and high school. AIMS is a
@@ -29,7 +29,7 @@ describe GreatSchools::Test do
     TEXT
 
     test.results.each do |result|
-      result.should be_a(GreatSchools::Result)
+      expect(result).to be_a(GreatSchools::Result)
     end
   end
 end

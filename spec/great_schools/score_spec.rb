@@ -10,10 +10,10 @@ describe GreatSchools::Score do
 
       score = GreatSchools::Score.for_school('AZ', 1)
 
-      score.school_name.should eql('Flagstaff High School')
-      score.rank.should be_a(GreatSchools::Rank)
+      expect(score.school_name).to eql('Flagstaff High School')
+      expect(score.rank).to be_a(GreatSchools::Rank)
       score.tests.each do |test|
-        test.should be_a(GreatSchools::Test)
+        expect(test).to be_a(GreatSchools::Test)
       end
     end
   end

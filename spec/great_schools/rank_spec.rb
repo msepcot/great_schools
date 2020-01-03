@@ -11,11 +11,11 @@ describe GreatSchools::Score do
       score = GreatSchools::Score.for_school('AZ', 1)
       rank = score.rank
 
-      rank.name.should eql('AZ GS Rating')
-      rank.scale.should eql('1-10')
-      rank.year.should eql('2008')
-      rank.score.should eql('9.0')
-      rank.description.should eql(<<-TEXT.squish)
+      expect(rank.name).to eql('AZ GS Rating')
+      expect(rank.scale).to eql('1-10')
+      expect(rank.year).to eql('2008')
+      expect(rank.score).to eql('9.0')
+      expect(rank.description).to eql(<<-TEXT.squish)
         GreatSchools Ratings for Arizona are based on the 2007-2008 Arizona's
         Instrument to Measure Standards (AIMS) reading, writing and math results.
         GreatSchools compared the test results for each grade and subject across
